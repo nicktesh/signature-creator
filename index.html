@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signature Creator</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,700;1,400;1,700&family=Kanit:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/scss/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container-fluid">
+        <div class="container">
+          <section class="module row-header">
+            <h1>Signature Creator</h1>
+            <p>This tool allows you to quickly get a digital download of your signature.</p>
+            <p>Use the pen tool to draw it yourself, or type it out and pick a font that suites your handwriting.</p>
+          </section>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="module row-signature">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="controls">
+                <label for="penWidth">Pen Width: <span id="penWidthValue">3.0</span></label>
+                <input type="range" id="penWidth" min="1" max="10" step="1" value="3" />
+                <input type="color" id="colorPicker" value="#000000" />
+                <input type="text" id="hexInput" value="#000000" />
+                <button id="undo" class="primary-btn">Undo</button>
+                <button id="clearCanvas" class="primary-btn">Clear Canvas</button>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="text-controls">
+                <select id="fontDropdown">
+                  <option value="Allison Script" style="font-family: Allison Script">Allison Script</option>
+                  <option value="Amanda Signature" style="font-family: Amanda Signature">Amanda Signature</option>
+                  <option value="Mr Dafoe" style="font-family: Mr Dafoe">Mr Dafoe</option>
+                  <option value="Prestige Signature Script" style="font-family: Prestige Signature Script">Prestige Signature Script</option>
+                </select>
+                <input type="text" id="nameInput" placeholder="Type your name here" />
+                <input type="number" id="textSizeInput" placeholder="Font Size" value="50" />
+                <button id="applyText" class="primary-btn">Apply Name</button>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <canvas id="drawingCanvas" width="500" height="150"></canvas>
+            </div>
+            <div class="col-lg-12">
+              <div class="export-controls">
+                <label for="exportScale">Export Scale:</label>
+                <select id="exportScale">
+                  <option value="1">1x</option>
+                  <option value="2">2x</option>
+                </select>
+                <button id="exportPng" class="primary-btn">Export as PNG</button>
+                <button id="exportJpg" class="primary-btn">Export as JPG</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p class="text-center" id="copyright"></p>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/tool.js"></script>
+  </body>
+</html>

@@ -1,0 +1,231 @@
+@font-face {
+  font-family: "Allison Script";
+  src: url("../../fonts/AllisonScript-Regular.eot");
+  src: url("../../fonts/AllisonScript-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/AllisonScript-Regular.woff2") format("woff2"), url("../../fonts/AllisonScript-Regular.woff") format("woff"), url("../../fonts/AllisonScript-Regular.ttf") format("truetype"), url("../../fonts/AllisonScript-Regular.svg#AllisonScript-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: "Amanda Signature";
+  src: url("../../fonts/AmandaSignatureRegular.eot");
+  src: url("../../fonts/AmandaSignatureRegular.eot?#iefix") format("embedded-opentype"), url("../../fonts/AmandaSignatureRegular.woff2") format("woff2"), url("../../fonts/AmandaSignatureRegular.woff") format("woff"), url("../../fonts/AmandaSignatureRegular.ttf") format("truetype"), url("../../fonts/AmandaSignatureRegular.svg#AmandaSignatureRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: "Mr Dafoe";
+  src: url("../../../fonts/MrDafoe-Regular.eot");
+  src: url("../../fonts/MrDafoe-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/MrDafoe-Regular.woff2") format("woff2"), url("../../fonts/MrDafoe-Regular.woff") format("woff"), url("../../fonts/MrDafoe-Regular.ttf") format("truetype"), url("../../fonts/MrDafoe-Regular.svg#MrDafoe-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: "Prestige Signature Script";
+  src: url("../../fonts/PrestigeSignatureScript.eot");
+  src: url("../../fonts/PrestigeSignatureScript.eot?#iefix") format("embedded-opentype"), url("../../fonts/PrestigeSignatureScript.woff2") format("woff2"), url("../../fonts/PrestigeSignatureScript.woff") format("woff"), url("../../fonts/PrestigeSignatureScript.ttf") format("truetype"), url("../../fonts/PrestigeSignatureScript.svg#PrestigeSignatureScript") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+body {
+  font-family: "Cabin", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Cabin", sans-serif;
+  line-height: 1.667;
+  letter-spacing: normal;
+  position: relative;
+  background-color: #fff;
+  color: #333;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 1s;
+  transition-delay: 0.2s; }
+  @media (max-width: 768px) {
+    body {
+      font-size: 16px; } }
+  body.scroll {
+    overflow-y: hidden; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-family: "Kanit", sans-serif; }
+
+h1 {
+  font-size: 50px;
+  font-weight: 700;
+  color: #202020; }
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 28px; } }
+
+h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #202020; }
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 26px; } }
+
+h3 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #202020; }
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 24px; } }
+
+h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #202020; }
+  @media (max-width: 768px) {
+    h4 {
+      font-size: 22px; } }
+
+h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #202020; }
+  @media (max-width: 768px) {
+    h5 {
+      font-size: 20px; } }
+
+h6 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #202020; }
+  @media (max-width: 768px) {
+    h6 {
+      font-size: 18px; } }
+
+p {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Cabin", sans-serif;
+  color: #333; }
+  @media (max-width: 768px) {
+    p {
+      font-size: 16px; } }
+
+a {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Cabin", sans-serif;
+  color: #0b192b;
+  text-decoration: underline; }
+  @media (max-width: 768px) {
+    a {
+      font-size: 16px; } }
+  a:hover, a:active, a:focus {
+    text-decoration: none;
+    color: #0b192b; }
+
+img {
+  width: 100%; }
+
+::selection {
+  background-color: #0b192b;
+  color: #fff; }
+
+.module {
+  padding: 100px 0; }
+  @media (max-width: 768px) {
+    .module {
+      padding: 50px 0; } }
+  .module .module-content {
+    margin-bottom: 30px; }
+    .module .module-content i {
+      color: #000;
+      font-weight: 700; }
+
+.bg-neutral {
+  background-color: #f7f7f7; }
+
+.container-fluid {
+  padding: 0; }
+
+@media (min-width: 1350px) {
+  .container {
+    max-width: 1350px !important; } }
+
+@media (min-width: 1450px) {
+  .container-xl {
+    max-width: 1450px !important; } }
+
+.pt-0 {
+  padding-top: 0; }
+
+.pb-0 {
+  padding-bottom: 0; }
+
+.p-0 {
+  padding: 0; }
+
+.primary-btn {
+  display: inline-block;
+  background-color: #0b192b;
+  color: #fff;
+  border: 2px solid #0b192b;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 8px 20px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  outline: none; }
+  .primary-btn:hover, .primary-btn:active, .primary-btn:focus {
+    background-color: transparent;
+    border: 2px solid #0b192b;
+    color: #0b192b; }
+  .primary-btn + .primary-btn {
+    margin-left: 5px; }
+
+header {
+  display: flex;
+  width: 100%;
+  background-color: #f7f7f7;
+  text-align: center; }
+  header .container-fluid {
+    padding: 0; }
+
+footer {
+  background-color: #0b192b;
+  text-align: center;
+  padding: 20px 0; }
+  footer p {
+    color: #fff;
+    margin-bottom: 0; }
+
+.row-signature {
+  text-align: center; }
+  .row-signature .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; }
+    .row-signature .controls label {
+      margin-right: 10px; }
+    .row-signature .controls input[type="range"] {
+      margin-right: 20px; }
+    .row-signature .controls input[type="color"] {
+      border: none;
+      cursor: pointer; }
+  .row-signature #drawingCanvas {
+    border: 1px solid #000;
+    margin: 40px 0; }
+  .row-signature #penWidthValue {
+    font-weight: 700; }
+
+/*# sourceMappingURL=styles.css.map */

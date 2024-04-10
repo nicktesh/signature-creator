@@ -1,0 +1,231 @@
+@import "variables";
+@import "mixins";
+@import "fonts";
+
+// Main Styles
+body {
+  font-family: $font-primary;
+  font-size: $body-font-size;
+  font-weight: $body-font-weight;
+  font-family: $font-primary;
+  line-height: $body-font-line-height;
+  letter-spacing: $body-font-letter-spacing;
+  position: relative;
+  background-color: $color-white;
+  color: $color-text;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 1s;
+  transition-delay: 0.2s;
+  @include md-screen-down {
+    font-size: $p-mobile-size;
+  }
+  &.scroll {
+    overflow-y: hidden;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-family: $font-secondary;
+}
+h1 {
+  font-size: $h1-size;
+  font-weight: $h1-weight;
+  color: $h1-color;
+  @include md-screen-down {
+    font-size: $h1-mobile-size;
+  }
+}
+h2 {
+  font-size: $h2-size;
+  font-weight: $h2-weight;
+  color: $h2-color;
+  @include md-screen-down {
+    font-size: $h2-mobile-size;
+  }
+}
+h3 {
+  font-size: $h3-size;
+  font-weight: $h3-weight;
+  color: $h3-color;
+  @include md-screen-down {
+    font-size: $h3-mobile-size;
+  }
+}
+h4 {
+  font-size: $h4-size;
+  font-weight: $h4-weight;
+  color: $h4-color;
+  @include md-screen-down {
+    font-size: $h4-mobile-size;
+  }
+}
+h5 {
+  font-size: $h5-size;
+  font-weight: $h5-weight;
+  color: $h5-color;
+  @include md-screen-down {
+    font-size: $h5-mobile-size;
+  }
+}
+h6 {
+  font-size: $h6-size;
+  font-weight: $h6-weight;
+  color: $h6-color;
+  @include md-screen-down {
+    font-size: $h6-mobile-size;
+  }
+}
+p {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: $p-size;
+  font-weight: $p-weight;
+  font-family: $font-primary;
+  color: $p-color;
+  @include md-screen-down {
+    font-size: $p-mobile-size;
+  }
+}
+a {
+  font-size: $a-size;
+  font-weight: $a-weight;
+  font-family: $font-primary;
+  color: $a-color;
+  text-decoration: underline;
+  @include md-screen-down {
+    font-size: $a-mobile-size;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: $color-primary;
+  }
+}
+img {
+  width: 100%;
+}
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+.module {
+  padding: 100px 0;
+  @include md-screen-down {
+    padding: 50px 0;
+  }
+  .module-content {
+    margin-bottom: 30px;
+    i {
+      color: $color-black;
+      font-weight: 700;
+    }
+  }
+}
+.bg-neutral {
+  background-color: $color-neutral;
+}
+.container-fluid {
+  padding: 0;
+}
+.container {
+  @media (min-width: 1350px) {
+    max-width: 1350px !important;
+  }
+}
+.container-xl {
+  @media (min-width: 1450px) {
+    max-width: 1450px !important;
+  }
+}
+.pt-0 {
+  padding-top: 0;
+}
+.pb-0 {
+  padding-bottom: 0;
+}
+.p-0 {
+  padding: 0;
+}
+// Primary Button
+.primary-btn {
+  display: inline-block;
+  background-color: $color-primary;
+  color: $color-white;
+  border: 2px solid $color-primary;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 8px 20px;
+  font-family: $font-secondary;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  outline: none;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: transparent;
+    border: 2px solid $color-primary;
+    color: $color-primary;
+  }
+  & + .primary-btn {
+    margin-left: 5px;
+  }
+}
+// Header
+header {
+  display: flex;
+  width: 100%;
+  background-color: $color-neutral;
+  text-align: center;
+  .container-fluid {
+    padding: 0;
+  }
+}
+// Footer
+footer {
+  background-color: $color-primary;
+  text-align: center;
+  padding: 20px 0;
+  p {
+    color: $color-white;
+    margin-bottom: 0;
+  }
+}
+// Row Signature
+.row-signature {
+  text-align: center;
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    label {
+      margin-right: 10px;
+    }
+    input[type="range"] {
+      margin-right: 20px;
+    }
+    input[type="color"] {
+      border: none;
+      cursor: pointer;
+    }
+  }
+  #drawingCanvas {
+    border: 1px solid $color-black;
+    margin: 40px 0;
+  }
+  #penWidthValue {
+    font-weight: 700;
+  }
+}
