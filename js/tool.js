@@ -123,17 +123,6 @@ function undoLastAction() {
   }
 }
 
-// This function will dynamically resize the canvas based on client screen width
-function resizeCanvas() {
-  const width = canvas.offsetWidth;
-  canvas.width = width;
-  canvas.height = 150;
-}
-
-// Resize the canvas when the window resizes to handle orientation changes, etc.
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
-
 // This function handles exporting the canvas to either a PNG or JPG image
 function exportCanvas(format) {
   let image;
