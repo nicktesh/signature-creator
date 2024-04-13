@@ -36,13 +36,17 @@ clearCanvasButton.addEventListener("click", () => {
 // This function determines if an event is a touch event or mouse event
 // and extracts the coordinates accordingly
 function getCoordinates(e) {
+  let x, y;
   if (e.touches) {
-    // Prevent default behavior to stop scrolling
     e.preventDefault();
-    return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    let rect = canvas.getBoundingClientRect();
+    x = e.touches[0].clientX - rect.left;
+    y = e.touches[0].clientY - rect.top;
   } else {
-    return { x: e.offsetX, y: e.offsetY };
+    x = e.offsetX;
+    y = e.offsetY;
   }
+  return { x, y };
 }
 
 // This function handles the pen tool drawing
