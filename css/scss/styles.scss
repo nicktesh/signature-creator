@@ -216,6 +216,9 @@ header {
   }
   .row-header {
     padding-bottom: 50px;
+    @include lg-screen-down {
+      padding-bottom: 30px;
+    }
   }
 }
 // Footer
@@ -233,6 +236,9 @@ footer {
 .row-signature {
   text-align: center;
   padding-top: 0;
+  h2 {
+    font-size: 30px;
+  }
   label {
     color: $color-primary;
     font-size: 14px;
@@ -263,13 +269,21 @@ footer {
       padding: 10px 0;
     }
   }
+  button {
+    white-space: nowrap;
+  }
+  h2 {
+    @include lg-screen-down {
+      margin-top: 20px;
+    }
+  }
   .control-box {
     display: flex;
     flex-flow: column;
     align-items: center;
     padding: 0 20px;
     @include xl-screen-down {
-      padding: 20px;
+      padding: 10px;
     }
     @include md-screen-down {
       width: 100%;
@@ -318,12 +332,6 @@ footer {
         }
       }
     }
-    .canvas-controls {
-      flex-flow: nowrap;
-      @include md-screen-down {
-        flex-flow: wrap;
-      }
-    }
   }
   .text-controls {
     display: flex;
@@ -335,12 +343,32 @@ footer {
     border-radius: $border-radius-sm;
     @include xl-screen-down {
       flex-flow: column;
+      align-items: center;
+    }
+    .control-box {
+      margin-bottom: 20px;
+      @include xl-screen-down {
+        margin-bottom: 10px;
+      }
+    }
+    .inner-wrapper {
+      display: flex;
+      align-items: flex-start;
+      @include md-screen-down {
+        flex-flow: wrap;
+        justify-content: center;
+      }
     }
   }
   .export-controls {
     flex-flow: nowrap;
     @include md-screen-down {
       flex-flow: wrap;
+    }
+  }
+  .canvas-header {
+    @include lg-screen-up {
+      margin-top: 50px;
     }
   }
   .canvas-wrapper {
@@ -352,11 +380,24 @@ footer {
     padding: 20px 40px;
     canvas {
       border: 2px solid $color-black;
-      margin-bottom: 40px;
+      margin: 40px 0;
       @include lg-screen-down {
         width: 100%;
-        max-width: 500;
+        max-width: 500px;
       }
+    }
+    .canvas-controls {
+      flex-flow: nowrap;
+      @include md-screen-down {
+        flex-flow: wrap;
+      }
+    }
+  }
+  .controls,
+  .text-controls {
+    justify-content: center;
+    @include md-screen-up {
+      height: 300px;
     }
   }
 }

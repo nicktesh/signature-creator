@@ -225,6 +225,9 @@ header {
     padding: 0; }
   header .row-header {
     padding-bottom: 50px; }
+    @media (max-width: 992px) {
+      header .row-header {
+        padding-bottom: 30px; } }
 
 footer {
   background-color: #0a1530;
@@ -238,6 +241,8 @@ footer {
 .row-signature {
   text-align: center;
   padding-top: 0; }
+  .row-signature h2 {
+    font-size: 30px; }
   .row-signature label {
     color: #0a1530;
     font-size: 14px;
@@ -263,6 +268,11 @@ footer {
         width: 100%; } }
     .row-signature select option {
       padding: 10px 0; }
+  .row-signature button {
+    white-space: nowrap; }
+  @media (max-width: 992px) {
+    .row-signature h2 {
+      margin-top: 20px; } }
   .row-signature .control-box {
     display: flex;
     flex-flow: column;
@@ -270,7 +280,7 @@ footer {
     padding: 0 20px; }
     @media (max-width: 1200px) {
       .row-signature .control-box {
-        padding: 20px; } }
+        padding: 10px; } }
     @media (max-width: 768px) {
       .row-signature .control-box {
         width: 100%; } }
@@ -306,11 +316,6 @@ footer {
         margin-bottom: 10px;
         width: 100%;
         height: 36px; }
-    .row-signature .controls .canvas-controls {
-      flex-flow: nowrap; }
-      @media (max-width: 768px) {
-        .row-signature .controls .canvas-controls {
-          flex-flow: wrap; } }
   .row-signature .text-controls {
     display: flex;
     align-items: center;
@@ -321,12 +326,28 @@ footer {
     border-radius: 20px; }
     @media (max-width: 1200px) {
       .row-signature .text-controls {
-        flex-flow: column; } }
+        flex-flow: column;
+        align-items: center; } }
+    .row-signature .text-controls .control-box {
+      margin-bottom: 20px; }
+      @media (max-width: 1200px) {
+        .row-signature .text-controls .control-box {
+          margin-bottom: 10px; } }
+    .row-signature .text-controls .inner-wrapper {
+      display: flex;
+      align-items: flex-start; }
+      @media (max-width: 768px) {
+        .row-signature .text-controls .inner-wrapper {
+          flex-flow: wrap;
+          justify-content: center; } }
   .row-signature .export-controls {
     flex-flow: nowrap; }
     @media (max-width: 768px) {
       .row-signature .export-controls {
         flex-flow: wrap; } }
+  @media (min-width: 992px) {
+    .row-signature .canvas-header {
+      margin-top: 50px; } }
   .row-signature .canvas-wrapper {
     display: flex;
     flex-flow: column;
@@ -336,10 +357,22 @@ footer {
     padding: 20px 40px; }
     .row-signature .canvas-wrapper canvas {
       border: 2px solid #000;
-      margin-bottom: 40px; }
+      margin: 40px 0; }
       @media (max-width: 992px) {
         .row-signature .canvas-wrapper canvas {
           width: 100%;
-          max-width: 500; } }
+          max-width: 500px; } }
+    .row-signature .canvas-wrapper .canvas-controls {
+      flex-flow: nowrap; }
+      @media (max-width: 768px) {
+        .row-signature .canvas-wrapper .canvas-controls {
+          flex-flow: wrap; } }
+  .row-signature .controls,
+  .row-signature .text-controls {
+    justify-content: center; }
+    @media (min-width: 768px) {
+      .row-signature .controls,
+      .row-signature .text-controls {
+        height: 300px; } }
 
 /*# sourceMappingURL=styles.css.map */

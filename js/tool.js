@@ -37,14 +37,17 @@ clearCanvasButton.addEventListener("click", () => {
 // and extracts the coordinates accordingly
 function getCoordinates(e) {
   let x, y;
+  const canvasRect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / canvasRect.width; // Scale factor for width
+  const scaleY = canvas.height / canvasRect.height; // Scale factor for height
+
   if (e.touches) {
     e.preventDefault();
-    let rect = canvas.getBoundingClientRect();
-    x = e.touches[0].clientX - rect.left;
-    y = e.touches[0].clientY - rect.top;
+    x = (e.touches[0].clientX - canvasRect.left) * scaleX;
+    y = (e.touches[0].clientY - canvasRect.top) * scaleY;
   } else {
-    x = e.offsetX;
-    y = e.offsetY;
+    x = e.offsetX * scaleX;
+    y = e.offsetY * scaleY;
   }
   return { x, y };
 }
@@ -119,6 +122,17 @@ function undoLastAction() {
     img.src = lastState;
   }
 }
+
+// This function will dynamically resize the canvas based on client screen width
+function resizeCanvas() {
+  const width = canvas.offsetWidth;
+  canvas.width = width;
+  canvas.height = 150;
+}
+
+// Resize the canvas when the window resizes to handle orientation changes, etc.
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
 
 // This function handles exporting the canvas to either a PNG or JPG image
 function exportCanvas(format) {
