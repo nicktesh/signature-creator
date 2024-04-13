@@ -16,34 +16,49 @@ function saveState() {
 // Function to detect when drawing starts
 function startDrawing(e) {
   drawing = true;
-  startTime = Date.now();
-  saveState(); // Save the canvas state before starting to draw
-  draw(e);
+  const { x, y } = getCoordinates(e);
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  saveState();
 }
 
 // Function to detect when drawing stops
-function stopDrawing() {
+function stopDrawing(e) {
+  if (!drawing) return;
   drawing = false;
   ctx.beginPath();
 }
-
 // Clear Canvas functionality
 clearCanvasButton.addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
+// This function determines if an event is a touch event or mouse event
+// and extracts the coordinates accordingly
+function getCoordinates(e) {
+  if (e.touches) {
+    // Prevent default behavior to stop scrolling
+    e.preventDefault();
+    return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  } else {
+    return { x: e.offsetX, y: e.offsetY };
+  }
+}
+
 // This function handles the pen tool drawing
 function draw(e) {
   if (!drawing) return;
+
+  const { x, y } = getCoordinates(e);
 
   ctx.lineWidth = penWidth;
   ctx.lineCap = "round";
   ctx.strokeStyle = penColor;
 
-  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.lineTo(x, y);
   ctx.stroke();
   ctx.beginPath();
-  ctx.moveTo(e.offsetX, e.offsetY);
+  ctx.moveTo(x, y);
 }
 
 // Function to draw the text with the current settings
@@ -131,11 +146,19 @@ function exportCanvas(format) {
   link.click();
 }
 
-// Main Event listeners
+// Event listeners for desktop
 canvas.addEventListener("mousedown", startDrawing);
 canvas.addEventListener("mouseup", stopDrawing);
 canvas.addEventListener("mouseout", stopDrawing);
 canvas.addEventListener("mousemove", draw);
+
+// Touch Event Listeners for mobile
+canvas.addEventListener("touchstart", startDrawing);
+canvas.addEventListener("touchend", stopDrawing);
+canvas.addEventListener("touchcancel", stopDrawing);
+canvas.addEventListener("touchmove", draw);
+
+// Additional Event Listeners
 document.getElementById("undo").addEventListener("click", undoLastAction);
 document.getElementById("exportPng").addEventListener("click", () => exportCanvas("png"));
 document.getElementById("exportJpg").addEventListener("click", () => exportCanvas("jpg"));
