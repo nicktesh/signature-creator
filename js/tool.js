@@ -68,7 +68,7 @@ function draw(e) {
 // Function to draw the text with the current settings
 function drawText() {
   const userName = document.getElementById("nameInput").value;
-  const textSize = document.getElementById("textSizeInput").value || 50;
+  const textSize = document.getElementById("textSizeInput").value || 70;
   const fontFamily = document.getElementById("fontDropdown").value;
 
   // This will set the font center of the canvas
@@ -122,30 +122,33 @@ function undoLastAction() {
 
 // This function handles exporting the canvas to either a PNG or JPG image
 function exportCanvas(format) {
-  const scale = parseInt(document.getElementById("exportScale").value, 10);
-  const scaledCanvas = document.createElement("canvas");
-  const scaledCtx = scaledCanvas.getContext("2d");
-
-  scaledCanvas.width = canvas.width * scale;
-  scaledCanvas.height = canvas.height * scale;
-
-  // Use drawImage to handle scaling directly:
-  scaledCtx.drawImage(canvas, 0, 0, scaledCanvas.width, scaledCanvas.height);
-
   let image;
   if (format === "png") {
-    image = scaledCanvas.toDataURL("image/png", 1.0);
+    // Export as PNG
+    image = canvas.toDataURL("image/png", 1.0);
   } else if (format === "jpg") {
-    // Fill background for JPG
-    scaledCtx.globalCompositeOperation = "destination-over";
-    scaledCtx.fillStyle = "#fff";
-    scaledCtx.fillRect(0, 0, scaledCanvas.width, scaledCanvas.height);
-    image = scaledCanvas.toDataURL("image/jpeg", 1.0);
+    // Create a temporary canvas to handle the JPG export
+    const jpgCanvas = document.createElement("canvas");
+    const jpgCtx = jpgCanvas.getContext("2d");
+
+    // Set dimensions equal to the original canvas
+    jpgCanvas.width = canvas.width;
+    jpgCanvas.height = canvas.height;
+
+    // Fill background with white color
+    jpgCtx.fillStyle = "#fff";
+    jpgCtx.fillRect(0, 0, jpgCanvas.width, jpgCanvas.height);
+
+    // Draw the original canvas content on top
+    jpgCtx.drawImage(canvas, 0, 0);
+
+    // Export as JPG
+    image = jpgCanvas.toDataURL("image/jpeg", 1.0);
   }
 
-  // Download the image
+  // Create link and trigger download
   const link = document.createElement("a");
-  link.download = `signature_${scale}x.${format}`;
+  link.download = `exported_image.${format}`;
   link.href = image;
   link.click();
 }

@@ -11,7 +11,7 @@ body {
   line-height: $body-font-line-height;
   letter-spacing: $body-font-letter-spacing;
   position: relative;
-  background-color: $color-white;
+  background-color: $color-neutral;
   color: $color-text;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -131,6 +131,10 @@ img {
     }
   }
 }
+.center {
+  justify-content: center;
+  align-items: center;
+}
 .bg-neutral {
   background-color: $color-neutral;
 }
@@ -156,6 +160,9 @@ img {
 .p-0 {
   padding: 0;
 }
+.shadow {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.025), 0 1px 0 rgba(0, 0, 0, 0.05), 0 0 8px rgba(0, 0, 0, 0.03), 0 20px 30px rgba(0, 0, 0, 0.1);
+}
 // Primary Button
 .primary-btn {
   display: inline-block;
@@ -165,6 +172,7 @@ img {
   border-radius: 10px;
   width: fit-content;
   padding: 8px 20px;
+  font-size: 16px;
   font-family: $font-secondary;
   font-weight: 500;
   text-transform: uppercase;
@@ -179,7 +187,22 @@ img {
     color: $color-primary;
   }
   & + .primary-btn {
-    margin-left: 5px;
+    @include md-screen-up {
+      flex-flow: wrap;
+      margin-left: 5px;
+    }
+  }
+  &.clear {
+    background-color: transparent;
+    border: 2px solid $color-danger;
+    color: $color-danger;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $color-danger;
+      color: $color-white;
+    }
   }
 }
 // Header
@@ -191,6 +214,9 @@ header {
   .container-fluid {
     padding: 0;
   }
+  .row-header {
+    padding-bottom: 50px;
+  }
 }
 // Footer
 footer {
@@ -200,32 +226,137 @@ footer {
   p {
     color: $color-white;
     margin-bottom: 0;
+    font-size: 14px;
   }
 }
 // Row Signature
 .row-signature {
   text-align: center;
+  padding-top: 0;
+  label {
+    color: $color-primary;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  input {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid $color-black;
+    border-radius: $border-radius-xs;
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
+  select {
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid $color-black;
+    border-radius: $border-radius-xs;
+    height: 36px;
+    @include md-screen-down {
+      width: 100%;
+    }
+    option {
+      padding: 10px 0;
+    }
+  }
+  .control-box {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 0 20px;
+    @include xl-screen-down {
+      padding: 20px;
+    }
+    @include md-screen-down {
+      width: 100%;
+    }
+  }
+  @include md-screen-down {
+    button {
+      width: 100%;
+      & + button {
+        margin-top: 10px;
+        margin-left: 0;
+      }
+    }
+  }
   .controls {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 20px;
-    label {
-      margin-right: 10px;
+    padding: 20px 40px;
+    background-color: $color-white;
+    border-radius: $border-radius-sm;
+    @include xl-screen-down {
+      flex-flow: column;
     }
-    input[type="range"] {
-      margin-right: 20px;
+    .pen-controls {
+      label {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+      }
+      #penWidthValue {
+        font-size: 25px;
+      }
     }
-    input[type="color"] {
-      border: none;
-      cursor: pointer;
+    .color-controls {
+      .color-picker-controls {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 100%;
+        #colorPicker {
+          margin-bottom: 10px;
+          width: 100%;
+          height: 36px;
+        }
+      }
+    }
+    .canvas-controls {
+      flex-flow: nowrap;
+      @include md-screen-down {
+        flex-flow: wrap;
+      }
     }
   }
-  #drawingCanvas {
-    border: 1px solid $color-black;
-    margin: 40px 0;
+  .text-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 20px 40px;
+    background-color: $color-white;
+    border-radius: $border-radius-sm;
+    @include xl-screen-down {
+      flex-flow: column;
+    }
   }
-  #penWidthValue {
-    font-weight: 700;
+  .export-controls {
+    flex-flow: nowrap;
+    @include md-screen-down {
+      flex-flow: wrap;
+    }
+  }
+  .canvas-wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: $color-white;
+    border-radius: $border-radius-sm;
+    padding: 20px 40px;
+    canvas {
+      border: 2px solid $color-black;
+      margin-bottom: 40px;
+      @include lg-screen-down {
+        width: 100%;
+        max-width: 500;
+      }
+    }
   }
 }

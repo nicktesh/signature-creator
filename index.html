@@ -2,13 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Nick Tesh" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#f3aa60" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Digital Signature Creator -Start drawing on the canvas immediately or type your name in the input and pick a font that suites your handwriting." />
+    <meta name="keywords" content="front end web developer, portfolio, signature creator" />
     <title>Signature Creator</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,700;1,400;1,700&family=Kanit:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
     <!-- Stylesheets -->
@@ -18,13 +33,16 @@
   <body>
     <header>
       <div class="container-fluid">
-        <div class="container">
-          <section class="module row-header">
-            <h1>Signature Creator</h1>
-            <p>This tool allows you to quickly get a digital download of your signature.</p>
-            <p>Use the pen tool to draw it yourself, or type it out and pick a font that suites your handwriting.</p>
-          </section>
-        </div>
+        <section class="module row-header">
+          <div class="container">
+            <div class="row center">
+              <div class="col-lg-8">
+                <h1>Digital Signature Creator</h1>
+                <p>Start drawing on the canvas immediately or type your name in the input and pick a font that suites your handwriting.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </header>
     <main>
@@ -32,40 +50,57 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <div class="controls">
-                <label for="penWidth">Pen Width: <span id="penWidthValue">3.0</span></label>
-                <input type="range" id="penWidth" min="1" max="10" step="1" value="3" />
-                <input type="color" id="colorPicker" value="#000000" />
-                <input type="text" id="hexInput" value="#000000" />
-                <button id="undo" class="primary-btn">Undo</button>
-                <button id="clearCanvas" class="primary-btn">Clear Canvas</button>
+              <div class="controls shadow">
+                <div class="pen-controls control-box">
+                  <label for="penWidth">Pen Width <span id="penWidthValue">3.0</span></label>
+                  <input type="range" id="penWidth" min="1" max="10" step="1" value="3" />
+                </div>
+                <div class="color-controls control-box">
+                  <div class="color-picker-controls">
+                    <label for="colorPicker">Color Picker</label>
+                    <input type="color" id="colorPicker" value="#000000" />
+                  </div>
+                  <label for="hexInput" class="sr-only">HEX Color</label>
+                  <input type="text" id="hexInput" value="#000000" />
+                </div>
+                <div class="canvas-controls control-box">
+                  <button id="undo" class="primary-btn">Undo</button>
+                  <button id="clearCanvas" class="primary-btn clear">Clear Canvas</button>
+                </div>
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="text-controls">
-                <select id="fontDropdown">
-                  <option value="Allison Script" style="font-family: Allison Script">Allison Script</option>
-                  <option value="Amanda Signature" style="font-family: Amanda Signature">Amanda Signature</option>
-                  <option value="Mr Dafoe" style="font-family: Mr Dafoe">Mr Dafoe</option>
-                  <option value="Prestige Signature Script" style="font-family: Prestige Signature Script">Prestige Signature Script</option>
-                </select>
-                <input type="text" id="nameInput" placeholder="Type your name here" />
-                <input type="number" id="textSizeInput" placeholder="Font Size" value="50" />
-                <button id="applyText" class="primary-btn">Apply Name</button>
+              <div class="text-controls shadow">
+                <div class="font-family-controls control-box">
+                  <label for="fontDropdown">Font Family</label>
+                  <select id="fontDropdown">
+                    <option value="Allison Script" style="font-family: Allison Script">Allison Script</option>
+                    <option value="Amanda Signature" style="font-family: Amanda Signature">Amanda Signature</option>
+                    <option value="Mr Dafoe" style="font-family: Mr Dafoe">Mr Dafoe</option>
+                    <option value="Prestige Signature Script" style="font-family: Prestige Signature Script">Prestige Signature Script</option>
+                    <option value="Ngatiyem Signature" style="font-family: Ngatiyem Signature">Ngatiyem Signature</option>
+                  </select>
+                </div>
+                <div class="name-controls control-box">
+                  <label for="nameInput">Name</label>
+                  <input type="text" id="nameInput" placeholder="Type your name here" />
+                </div>
+                <div class="font-size-controls control-box">
+                  <label for="textSizeInput">Font Size</label>
+                  <input type="number" id="textSizeInput" placeholder="Font Size" value="70" />
+                </div>
+                <div class="control-box">
+                  <button id="applyText" class="primary-btn">Apply Name</button>
+                </div>
               </div>
             </div>
             <div class="col-lg-12">
-              <canvas id="drawingCanvas" width="500" height="150"></canvas>
-            </div>
-            <div class="col-lg-12">
-              <div class="export-controls">
-                <label for="exportScale">Export Scale:</label>
-                <select id="exportScale">
-                  <option value="1">1x</option>
-                  <option value="2">2x</option>
-                </select>
-                <button id="exportPng" class="primary-btn">Export as PNG</button>
-                <button id="exportJpg" class="primary-btn">Export as JPG</button>
+              <div class="canvas-wrapper shadow">
+                <canvas id="drawingCanvas" width="500" height="150"></canvas>
+                <div class="export-controls control-box">
+                  <button id="exportPng" class="primary-btn">Export as PNG</button>
+                  <button id="exportJpg" class="primary-btn">Export as JPG</button>
+                </div>
               </div>
             </div>
           </div>
